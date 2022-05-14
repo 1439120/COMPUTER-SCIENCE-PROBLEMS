@@ -15,7 +15,13 @@ string rtrim(const string &);
  */
 
 int pageCount(int n, int p) {
-    return 1;
+    bool front = p < n - p ? true : false;
+    // from the front page
+    if(front) return int(p/2);
+    // from the back page
+    if(n%2 == 0 && p == n - 1 && n != 2) return 1;
+    
+    return int(n - p)/2;
 }
 
 int main()
